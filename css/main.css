@@ -1,0 +1,165 @@
+/* ======================================
+ 
+    MediaQuery-Reporter Styles
+ 
+========================================= */
+body:after {
+  content: "less than 320px";
+  font-size: 100%;
+  font-weight: bold;
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(163, 43, 41, 0.7);
+  color: #fff;
+}
+
+@media only screen and (min-width: 320px) {
+  body:after {
+    content: "320 to 480px";
+    background-color: rgba(102, 163, 41, 0.7);
+  }
+}
+@media only screen and (min-width: 480px) {
+  body:after {
+    content: "480 to 768px";
+    background-color: rgba(41, 163, 163, 0.7);
+  }
+}
+@media only screen and (min-width: 768px) {
+  body:after {
+    content: "768 to 1024px";
+    background-color: rgba(102, 41, 163, 0.7);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  body:after {
+    content: "1024 and up";
+    background-color: rgba(163, 41, 41, 0.7);
+  }
+}
+/* ----------------My CSS----------------- */
+* {
+  border: 2px dotted green;
+}
+
+body {
+  color: #2b2b2b;
+  font-family: "Ubuntu Mono", monospace;
+  background: #d6d6d6;
+}
+
+#container {
+  margin: 100px auto;
+  width: 480px;
+  background-color: #325575;
+  box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 20px 3px;
+  border-radius: 5px;
+}
+
+#display-top {
+  text-align: right;
+  height: 35px;
+  line-height: 35px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#display-top-text {
+  font-size: 1.3em;
+}
+
+#display-bottom {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2.5em;
+  height: 70px;
+  display: grid;
+  justify-content: end;
+  align-content: center;
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 300px;
+}
+#keyboard .key {
+  display: grid;
+  align-content: center;
+  border-top: 1px solid #2b2b2b;
+  border-right: 1px solid #2b2b2b;
+  cursor: pointer;
+}
+#keyboard .key .keyPara {
+  text-align: center;
+  font-size: 2.5em;
+  color: rgba(255, 255, 255, 0.9);
+}
+#keyboard .key:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+}
+
+#k0,
+#k6,
+#k12,
+#k18 {
+  grid-column: 1/span 1;
+}
+
+#k1,
+#k7,
+#k13,
+#k19 {
+  grid-column: 2/span 1;
+}
+
+#k2,
+#k8,
+#k14,
+#k20 {
+  grid-column: 3/span 1;
+}
+
+#k3,
+#k9,
+#k15,
+#k21 {
+  grid-column: 4/span 1;
+}
+
+#k4,
+#k10,
+#k16 {
+  grid-column: 5/span 1;
+}
+
+#k5,
+#k11,
+#k17 {
+  grid-column: 6/span 1;
+}
+
+#k22 {
+  grid-column: 5/span 2;
+}
+
+#keyboard #keyPara3,
+#keyboard #keyPara4,
+#keyboard #keyPara9,
+#keyboard #keyPara15,
+#keyboard #keyPara21 {
+  color: #5a758f;
+}
+
+#keyboard #keyPara10,
+#keyboard #keyPara16 {
+  color: #2081c6;
+}
+
+#keyboard #keyPara22 {
+  color: #327552;
+}
+
+/*# sourceMappingURL=main.css.map */

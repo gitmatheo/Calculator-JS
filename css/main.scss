@@ -1,0 +1,201 @@
+/* ======================================
+ 
+    MediaQuery-Reporter Styles
+ 
+========================================= */
+
+body:after {
+  content: "less than 320px";
+  font-size: 100%;
+  font-weight: bold;
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  text-align: center;
+  background-color: hsla(1, 60%, 40%, 0.7);
+  color: #fff;
+}
+@media only screen and (min-width: 320px) {
+  body:after {
+    content: "320 to 480px";
+    background-color: hsla(90, 60%, 40%, 0.7);
+  }
+}
+@media only screen and (min-width: 480px) {
+  body:after {
+    content: "480 to 768px";
+    background-color: hsla(180, 60%, 40%, 0.7);
+  }
+}
+@media only screen and (min-width: 768px) {
+  body:after {
+    content: "768 to 1024px";
+    background-color: hsla(270, 60%, 40%, 0.7);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  body:after {
+    content: "1024 and up";
+    background-color: hsla(360, 60%, 40%, 0.7);
+  }
+}
+
+/* ----------------My CSS----------------- */
+
+* {
+  border: 2px dotted green;
+}
+
+$background: #d6d6d6;
+$title: #2b2b2b;
+$main-color: #325575;
+
+$main-color-complementary: #754b32;
+$main-color-complementary-split1: #755b32;
+$main-color-complementary-split2: #753a32;
+
+$main-color-triadic1: #756c32;
+$main-color-triadic2: #753244;
+
+$main-color-tetradic1: #754b32;
+$main-color-tetradic2: #756c32;
+$main-color-tetradic3: #633275;
+
+$main-color-monochromatic: #5a758f;
+
+$main-color-analogous1: #423275;
+$main-color-analogous2: #327552;
+$numbers-color: rgba(255, 255, 255, 0.9);
+$numbers-color2: rgba(255, 255, 255, 0.8);
+$numbers-color3: rgba(255, 255, 255, 0.2);
+$main-font: "Ubuntu Mono", monospace;
+$main-font-size: 2.5em;
+
+body {
+  color: $title;
+  font-family: $main-font;
+  background: $background;
+}
+
+#container {
+  margin: 100px auto;
+  width: 480px;
+  background-color: $main-color;
+  box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 20px 3px;
+  border-radius: 5px;
+}
+
+#display-top {
+  text-align: right;
+  height: 35px;
+  line-height: 35px;
+  color: $numbers-color;
+}
+
+#display-top-text {
+  font-size: $main-font-size - 1.2em;
+}
+
+#display-bottom {
+  background-color: black;
+  color: $numbers-color2;
+  font-size: $main-font-size;
+  height: 70px;
+  display: grid;
+  justify-content: end;
+  align-content: center;
+}
+
+#display-bottom-text {
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 300px;
+  .key {
+    display: grid;
+    align-content: center;
+    border-top: 1px solid $title;
+    border-right: 1px solid $title;
+    cursor: pointer;
+    .keyPara {
+      text-align: center;
+      font-size: $main-font-size;
+      color: $numbers-color;
+    }
+  }
+  .key:hover {
+    background-color: $numbers-color3;
+    transition: 0.3s;
+  }
+}
+
+#k0,
+#k6,
+#k12,
+#k18 {
+  grid-column: 1 / span 1;
+}
+
+#k1,
+#k7,
+#k13,
+#k19 {
+  grid-column: 2 / span 1;
+}
+
+#k2,
+#k8,
+#k14,
+#k20 {
+  grid-column: 3 / span 1;
+}
+
+#k3,
+#k9,
+#k15,
+#k21 {
+  grid-column: 4 / span 1;
+}
+
+#k4,
+#k10,
+#k16 {
+  grid-column: 5 / span 1;
+}
+
+#k5,
+#k11,
+#k17 {
+  grid-column: 6 / span 1;
+}
+
+#k22 {
+  grid-column: 5 / span 2;
+}
+
+#keyboard #keyPara3,
+#keyboard #keyPara4,
+#keyboard #keyPara9,
+#keyboard #keyPara15,
+#keyboard #keyPara21 {
+  color: $main-color-monochromatic;
+}
+
+#keyboard #keyPara10,
+#keyboard #keyPara16 {
+  color: #2081c6;
+}
+
+#keyboard #keyPara5 {
+  // color: #2081c6;
+}
+
+#keyboard #keyPara11 {
+  // color: #2081c6;
+}
+
+#keyboard #keyPara22 {
+  color: $main-color-analogous2;
+}
