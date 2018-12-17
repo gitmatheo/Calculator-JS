@@ -1,33 +1,103 @@
-const key = Array.from(document.getElementsByClassName("key"));
-const displayText = document.getElementById("display-bottom-text");
+document.addEventListener("DOMContentLoaded", function() {
+  const displayText = document.getElementById("display-bottom-text");
+  const displayTopText = document.getElementById("display-top-text");
+  const operator = document.getElementsByClassName("operator");
+  const number = document.getElementsByClassName("number");
+  const negative = document.getElementById("k18");
 
-const operate = () => {
-  const add = (a, b) => a + b;
-  const subtract = (a, b) => a - b;
-  const multiply = (a, b) => a * b;
-  const divide = (a, b = 0) => {
-    if (b === 0) throw new Error("Cannot divide by 0");
-    return a / b;
-  };
-  return { add, subtract, multiply, divide };
-};
+  function getHistory() {
+    return displayTopText.innerText;
+  }
 
-function populate() {
-  key.forEach(function(e) {
-    e.addEventListener("click", function() {
-      let show = "";
-      show += e.innerText;
-      display(show);
+  function printHistory(num) {
+    displayTopText.innerText = num;
+  }
+
+  function getOutput() {
+    return displayText.innerText;
+  }
+
+  function printOutput(num) {
+    if (num == "") {
+      displayText.innerText = num;
+    } else {
+      displayText.innerText = getFormattedNumber(num);
+    }
+  }
+
+  function getFormattedNumber(num) {
+    if (num == "-") {
+      return "";
+    }
+    let n = num;
+    let value = n.toLocaleString("en");
+    return value;
+  }
+
+  function reverseNumberFormat(num) {
+    return num.replace(/,/g, "");
+  }
+
+  for (let i = 0; i < operator.length; i++) {
+    operator[i].addEventListener("click", function() {
+      if (this.id == "clear") {
+        printHistory("");
+        printOutput("");
+      } else if (this.id == "backspace") {
+        let output = reverseNumberFormat(getOutput()).toString();
+        if (output) {
+          // if output has a value
+          output = output.substr(0, output.length - 1);
+          printOutput(output);
+        }
+      } else {
+        let output = getOutput();
+        let history = getHistory();
+        if (output == "" && history != "") {
+          if (isNaN(history[history.length - 1])) {
+            history = history.substr(0, history.length - 1);
+          }
+        }
+        if (output != "" || history != "") {
+          output = output == "" ? output : reverseNumberFormat(output);
+          history += output;
+          if (this.id == "=") {
+            let result = eval(history);
+            printOutput(result);
+            printHistory("");
+          } else if (this.id == ".") {
+            output = output + this.id;
+            printOutput(output);
+          } else {
+            history += this.id;
+            printHistory(history);
+            printOutput("");
+          }
+        }
+      }
     });
-  });
-}
+  }
 
-function display(txt) {
-  displayText.innerText = txt;
-}
+  for (let i = 0; i < number.length; i++) {
+    number[i].addEventListener("click", function() {
+      console.log("number " + this.id);
+      let output = reverseNumberFormat(getOutput());
 
-display(populate());
+      if (output != NaN) {
+        //if output is a number
+        output = output + this.id;
+        printOutput(output);
+      }
+    });
+  }
 
-// window.addEventListener("load", function() {
+  function negativeToggle() {
+    if (getOutput()[0] == "-") {
+      printOutput(getOutput().substring(1));
+    } else {
+      printOutput("-" + getOutput());
+    }
+  }
 
-// });
+  negative.addEventListener("click", negativeToggle);
+});
