@@ -34,6 +34,11 @@ body {
   font-family: $main-font;
   background: $background;
 }
+header {
+  margin: 50px auto;
+  text-align: center;
+  font-size: $main-font-size;
+}
 
 #container {
   margin: 100px auto;
