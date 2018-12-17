@@ -80,9 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   for (let i = 0; i < number.length; i++) {
     number[i].addEventListener("click", function() {
-      console.log("number " + this.id);
       let output = reverseNumberFormat(getOutput());
-
       if (output != NaN) {
         //if output is a number
         output = output + this.id;
